@@ -1,5 +1,6 @@
 express = require 'express'
 stylus = require 'stylus'
+config = require './config.js'
 app = module.exports = express.createServer()
 
 app.configure ->
@@ -28,5 +29,5 @@ compileMethod = (str, path) ->
 app.get "/", (req, res) ->
   res.render "index", title: "Twitter Raffle", subtitle: "By <a href='http://comorichweb.posterous.com/'>Como Rich Web</a>"
 
-app.listen 3000
+app.listen config.port
 console.log "Express server listening on port %d in %s mode", app.address().port, app.settings.env
